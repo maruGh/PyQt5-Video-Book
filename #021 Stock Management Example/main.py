@@ -210,7 +210,9 @@ class StockManagement(QtWidgets.QMainWindow):
                            title="Stock Management Example >>> All Products")
         else:
             QtWidgets.QMessageBox.warning(
-                self, "Warning", add_result, QtWidgets.QMessageBox.StandardButton.Ok)
+                self, "Warning",
+                add_result,
+                QtWidgets.QMessageBox.StandardButton.Ok)
 
             # Bring the dialog window to the front
             self.new_product_dialog.raise_()
