@@ -251,7 +251,8 @@ class StockManagement(QtWidgets.QMainWindow):
     def search_all_product(self):
         data = self.search_dialog.get_all_products()
         self.show_data(
-            data=data, title="Stock Management Example >>> All Products")
+            data=data,
+            title="Stock Management Example >>> All Products")
 
     # Function for updating the product
     def update_product_save(self):
