@@ -223,16 +223,18 @@ class StockManagement(QtWidgets.QMainWindow):
         self.show_data(data=search_data,
                        title="Stock Management Example >>> All Products")
 
-    # Functions for SEARCH dialog ///////////////////////////////////////////////////////////////////////
+    # Functions for SEARCH dialog
     def search_more_detail(self):
         data = self.search_dialog.get_more_detail()
         self.show_data(
-            data=data, title="Stock Management Example >>> Single Product Information")
+            data=data,
+            title="Stock Management Example >>> Single Product Information")
 
     def search_in_stock_product(self):
         data = self.search_dialog.get_in_stock_product()
         self.show_data(
-            data=data, title="Stock Management Example >>> All in Stock Products")
+            data=data,
+            title="Stock Management Example >>> All in Stock Products")
 
     def search_reorder_product(self):
         data = self.search_dialog.get_reorder_product()
