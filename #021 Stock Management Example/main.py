@@ -176,7 +176,7 @@ class StockManagement(QtWidgets.QMainWindow):
         no_stock_count = self.connect_db.get_no_stock_product()[0]
         self.ui.label_9.setText(str(no_stock_count))
 
-    # QAction function for options in table ////////////////////////////////////////////////////////////
+    # QAction function for options in table /////////////////////
     def action_edit_triggered(self, table):
         product_name = table.item(table.currentRow(), 0).text()
         self.open_update_product_dialog(product_name=product_name)
