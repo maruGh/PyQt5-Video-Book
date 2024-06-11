@@ -253,7 +253,7 @@ class StockManagement(QtWidgets.QMainWindow):
         self.show_data(
             data=data, title="Stock Management Example >>> All Products")
 
-    # Function for updating product
+    # Function for updating the product
     def update_product_save(self):
         update_result = self.update_product_dialog.update_product_info()
 
