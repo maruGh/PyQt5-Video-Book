@@ -273,7 +273,7 @@ class StockManagement(QtWidgets.QMainWindow):
 
             self.update_product_dialog.raise_()
 
-    # Function for updating stock ///////////////////////////////////////////////////////////
+    # Function for updating stock
     def update_stock_submit(self):
         update_result = self.update_stock_dialog.submit()
 
