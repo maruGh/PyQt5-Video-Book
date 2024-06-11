@@ -195,7 +195,7 @@ class StockManagement(QtWidgets.QMainWindow):
             self.show_data(data=search_data,
                            title="Stock Management Example >>> All products")
 
-    # Function for adding new product //////////////////////////////////////////////////////////////////
+    # Function for adding new product ////
     def new_product_save(self):
         add_result = self.new_product_dialog.add_new_product()
 
