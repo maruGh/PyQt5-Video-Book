@@ -183,8 +183,11 @@ class StockManagement(QtWidgets.QMainWindow):
 
     def action_delete_triggered(self, table):
         product_name = table.item(table.currentRow(), 0).text()
-        choice = QtWidgets.QMessageBox.warning(self, "Delete !!!", f"Are you sure to delete {product_name} ?",
-                                               QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.Cancel)
+        choice = QtWidgets.QMessageBox.warning(
+            self, "Delete !!!",
+            f"Are you sure to delete {product_name} ?",
+            QtWidgets.QMessageBox.StandardButton.Yes |
+            QtWidgets.QMessageBox.StandardButton.Cancel)
         if choice == QtWidgets.QMessageBox.StandardButton.Yes:
             self.connect_db.delete_product(product_name=product_name)
 
