@@ -239,19 +239,21 @@ class StockManagement(QtWidgets.QMainWindow):
     def search_reorder_product(self):
         data = self.search_dialog.get_reorder_product()
         self.show_data(
-            data=data, title="Stock Management Example >>> Reorder Required Products")
+            data=data,
+            title="Stock Management Example >>> Reorder Required Products")
 
     def search_no_stock_product(self):
         data = self.search_dialog.get_no_stock_product()
         self.show_data(
-            data=data, title="Stock Management Example >>> All out of Stock Products")
+            data=data,
+            title="Stock Management Example >>> All out of Stock Products")
 
     def search_all_product(self):
         data = self.search_dialog.get_all_products()
         self.show_data(
             data=data, title="Stock Management Example >>> All Products")
 
-    # Function for updating product ///////////////////////////////////////////////////////////
+    # Function for updating product
     def update_product_save(self):
         update_result = self.update_product_dialog.update_product_info()
 
@@ -264,8 +266,10 @@ class StockManagement(QtWidgets.QMainWindow):
                            title="Stock Management Example >>> All products")
 
         else:
-            QtWidgets.QMessageBox.warning(self, "Warning", f"Please try again: {update_result}",
-                                          QtWidgets.QMessageBox.StandardButton.Ok)
+            QtWidgets.QMessageBox.warning(
+                self,
+                "Warning", f"Please try again: {update_result}",
+                QtWidgets.QMessageBox.StandardButton.Ok)
 
             self.update_product_dialog.raise_()
 
