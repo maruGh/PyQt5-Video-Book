@@ -1,5 +1,5 @@
 import sys
-from PyQt6 import QtWidgets, uic, QtGui, QtCore
+from PyQt6 import QtWidgets, uic, QtGui
 
 from connect_db import DatabaseConnect
 from new_product import NewProductWindow
@@ -42,20 +42,28 @@ class StockManagement(QtWidgets.QMainWindow):
 
         # Connect buttons to their respective functions
         self.search_dialog.detail_btn.clicked.connect(self.search_more_detail)
-        self.search_dialog.current_stock_btn.clicked.connect(self.search_in_stock_product)
-        self.search_dialog.reorder_btn.clicked.connect(self.search_reorder_product)
-        self.search_dialog.no_stock_btn.clicked.connect(self.search_no_stock_product)
-        self.search_dialog.all_product_btn.clicked.connect(self.search_all_product)
+        self.search_dialog.current_stock_btn.clicked.connect(
+            self.search_in_stock_product)
+        self.search_dialog.reorder_btn.clicked.connect(
+            self.search_reorder_product)
+        self.search_dialog.no_stock_btn.clicked.connect(
+            self.search_no_stock_product)
+        self.search_dialog.all_product_btn.clicked.connect(
+            self.search_all_product)
 
         # Connect new product dialog buttons to their respective functions
-        self.new_product_dialog.new_product_save_btn.clicked.connect(self.new_product_save)
-        self.new_product_dialog.new_product_cancel_btn.clicked.connect(self.new_product_cancel)
+        self.new_product_dialog.new_product_save_btn.clicked.connect(
+            self.new_product_save)
+        self.new_product_dialog.new_product_cancel_btn.clicked.connect(
+            self.new_product_cancel)
 
         # Connect update product button box to its function
-        self.update_product_dialog.product_update_button_box.accepted.connect(self.update_product_save)
+        self.update_product_dialog.product_update_button_box.accepted.connect(
+            self.update_product_save)
 
         # Update stock dialog button
-        self.update_stock_dialog.submit_btn.clicked.connect(self.update_stock_submit)
+        self.update_stock_dialog.submit_btn.clicked.connect(
+            self.update_stock_submit)
 
     def open_new_product_dialog(self):
         """
@@ -101,7 +109,7 @@ class StockManagement(QtWidgets.QMainWindow):
         self.update_product_dialog.init_product_list(product_name=product_name)
         self.update_product_dialog.raise_()
 
-    ## Common function for show new data in the QTableWidget ////////////////////////////////////////////////
+    # Common function for show new data in the QTableWidget //
     def show_data(self, data, title="Stock Management Example"):
         """
         The order of the data:
@@ -125,8 +133,10 @@ class StockManagement(QtWidgets.QMainWindow):
                 action_delete = QtGui.QAction("Delete", self)
 
                 # Connect actions to functions
-                action_edit.triggered.connect(lambda: self.action_edit_triggered(table))
-                action_delete.triggered.connect(lambda: self.action_delete_triggered(table))
+                action_edit.triggered.connect(
+                    lambda: self.action_edit_triggered(table))
+                action_delete.triggered.connect(
+                    lambda: self.action_delete_triggered(table))
 
                 # Create QMenu
                 menu = QtWidgets.QMenu(self)
@@ -166,7 +176,7 @@ class StockManagement(QtWidgets.QMainWindow):
         no_stock_count = self.connect_db.get_no_stock_product()[0]
         self.ui.label_9.setText(str(no_stock_count))
 
-    ## QAction function for options in table ////////////////////////////////////////////////////////////
+    # QAction function for options in table ////////////////////////////////////////////////////////////
     def action_edit_triggered(self, table):
         product_name = table.item(table.currentRow(), 0).text()
         self.open_update_product_dialog(product_name=product_name)
@@ -179,9 +189,10 @@ class StockManagement(QtWidgets.QMainWindow):
             self.connect_db.delete_product(product_name=product_name)
 
             search_data = self.search_dialog.get_all_products()
-            self.show_data(data=search_data, title="Stock Management Example >>> All products")
+            self.show_data(data=search_data,
+                           title="Stock Management Example >>> All products")
 
-    ## Function for adding new product //////////////////////////////////////////////////////////////////
+    # Function for adding new product //////////////////////////////////////////////////////////////////
     def new_product_save(self):
         add_result = self.new_product_dialog.add_new_product()
 
@@ -192,9 +203,11 @@ class StockManagement(QtWidgets.QMainWindow):
 
             # Show datas after add new product
             search_data = self.search_dialog.get_all_products()
-            self.show_data(data=search_data, title="Stock Management Example >>> All Products")
+            self.show_data(data=search_data,
+                           title="Stock Management Example >>> All Products")
         else:
-            QtWidgets.QMessageBox.warning(self, "Warning", add_result, QtWidgets.QMessageBox.StandardButton.Ok)
+            QtWidgets.QMessageBox.warning(
+                self, "Warning", add_result, QtWidgets.QMessageBox.StandardButton.Ok)
 
             # Bring the dialog window to the front
             self.new_product_dialog.raise_()
@@ -202,30 +215,36 @@ class StockManagement(QtWidgets.QMainWindow):
     def new_product_cancel(self):
         self.new_product_dialog.close()
         search_data = self.search_dialog.get_all_products()
-        self.show_data(data=search_data, title="Stock Management Example >>> All Products")
+        self.show_data(data=search_data,
+                       title="Stock Management Example >>> All Products")
 
-    ## Functions for SEARCH dialog ///////////////////////////////////////////////////////////////////////
+    # Functions for SEARCH dialog ///////////////////////////////////////////////////////////////////////
     def search_more_detail(self):
         data = self.search_dialog.get_more_detail()
-        self.show_data(data=data, title="Stock Management Example >>> Single Product Information")
+        self.show_data(
+            data=data, title="Stock Management Example >>> Single Product Information")
 
     def search_in_stock_product(self):
         data = self.search_dialog.get_in_stock_product()
-        self.show_data(data=data, title="Stock Management Example >>> All in Stock Products")
+        self.show_data(
+            data=data, title="Stock Management Example >>> All in Stock Products")
 
     def search_reorder_product(self):
         data = self.search_dialog.get_reorder_product()
-        self.show_data(data=data, title="Stock Management Example >>> Reorder Required Products")
+        self.show_data(
+            data=data, title="Stock Management Example >>> Reorder Required Products")
 
     def search_no_stock_product(self):
         data = self.search_dialog.get_no_stock_product()
-        self.show_data(data=data, title="Stock Management Example >>> All out of Stock Products")
+        self.show_data(
+            data=data, title="Stock Management Example >>> All out of Stock Products")
 
     def search_all_product(self):
         data = self.search_dialog.get_all_products()
-        self.show_data(data=data, title="Stock Management Example >>> All Products")
+        self.show_data(
+            data=data, title="Stock Management Example >>> All Products")
 
-    ## Function for updating product ///////////////////////////////////////////////////////////
+    # Function for updating product ///////////////////////////////////////////////////////////
     def update_product_save(self):
         update_result = self.update_product_dialog.update_product_info()
 
@@ -234,7 +253,8 @@ class StockManagement(QtWidgets.QMainWindow):
 
             # Show data after update product
             search_data = self.search_dialog.get_all_products()
-            self.show_data(data=search_data, title="Stock Management Example >>> All products")
+            self.show_data(data=search_data,
+                           title="Stock Management Example >>> All products")
 
         else:
             QtWidgets.QMessageBox.warning(self, "Warning", f"Please try again: {update_result}",
@@ -242,7 +262,7 @@ class StockManagement(QtWidgets.QMainWindow):
 
             self.update_product_dialog.raise_()
 
-    ## Function for updating stock ///////////////////////////////////////////////////////////
+    # Function for updating stock ///////////////////////////////////////////////////////////
     def update_stock_submit(self):
         update_result = self.update_stock_dialog.submit()
 
@@ -254,7 +274,8 @@ class StockManagement(QtWidgets.QMainWindow):
             self.update_stock_dialog.show_product_name.clear()
             self.update_stock_dialog.close()
             search_data = self.search_dialog.get_all_products()
-            self.show_data(data=search_data, title="Stock Management Example >>> All Products ")
+            self.show_data(data=search_data,
+                           title="Stock Management Example >>> All Products ")
 
 
 if __name__ == '__main__':
