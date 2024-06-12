@@ -162,13 +162,13 @@ class StockManagement(QtWidgets.QMainWindow):
 
     def update_dashboard(self):
         current_stock = self.connect_db.get_current_stock()[0]
-        self.ui.label.setText(str(current_stock) + "Unit(s)")
+        self.ui.label.setText(str(current_stock) + " Unit(s)")
 
         stock_value = self.connect_db.get_stock_value()[0]
-        self.ui.label_3.setText("$" + str(stock_value))
+        self.ui.label_3.setText("$ " + str(stock_value))
 
         stock_cost = self.connect_db.get_stock_cost()[0]
-        self.ui.label_5.setText("$" + str(stock_cost))
+        self.ui.label_5.setText("$ " + str(stock_cost))
 
         reorder_count = self.connect_db.get_reorder_product()[0]
         self.ui.label_7.setText(str(reorder_count))

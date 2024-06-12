@@ -88,7 +88,6 @@
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -157,7 +156,6 @@ QLabel {
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -226,7 +224,6 @@ QLabel {
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -295,7 +292,6 @@ QLabel {
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -364,7 +360,6 @@ QLabel {
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -470,7 +465,7 @@ QLabel {
        <item>
         <widget class="QLabel" name="label_11">
          <property name="text">
-          <string>Stock Management Example</string>
+          <string>Stock Management</string>
          </property>
         </widget>
        </item>
@@ -571,7 +566,7 @@ QLabel {
   <action name="actionNew_Product">
    <property name="icon">
     <iconset>
-     <normaloff>icon/add.svg</normaloff>icon/add.svg</iconset>
+     <normaloff>../../../1 Calculator/logs/+.svg</normaloff>../../../1 Calculator/logs/+.svg</iconset>
    </property>
    <property name="text">
     <string>New Product</string>
@@ -580,7 +575,7 @@ QLabel {
   <action name="actionStock_Update">
    <property name="icon">
     <iconset>
-     <normaloff>icon/update.svg</normaloff>icon/update.svg</iconset>
+     <normaloff>../../../1 Calculator/logs/update.svg</normaloff>../../../1 Calculator/logs/update.svg</iconset>
    </property>
    <property name="text">
     <string>Stock Update</string>
@@ -589,7 +584,7 @@ QLabel {
   <action name="actionSearch">
    <property name="icon">
     <iconset>
-     <normaloff>icon/search.svg</normaloff>icon/search.svg</iconset>
+     <normaloff>../../../1 Calculator/logs/search.svg</normaloff>../../../1 Calculator/logs/search.svg</iconset>
    </property>
    <property name="text">
     <string>Search</string>
@@ -598,7 +593,7 @@ QLabel {
   <action name="actionExit">
    <property name="icon">
     <iconset>
-     <normaloff>icon/close.svg</normaloff>icon/close.svg</iconset>
+     <normaloff>../../../1 Calculator/logs/X.svg</normaloff>../../../1 Calculator/logs/X.svg</iconset>
    </property>
    <property name="text">
     <string>Exit</string>

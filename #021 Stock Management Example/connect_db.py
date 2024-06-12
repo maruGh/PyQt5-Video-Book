@@ -41,10 +41,10 @@ class DatabaseConnect:
                 # Create the table if it doesnt exist
                 sql = f"""
                     CREATE TABLE '{self.table_name}' (
-                    "product_name"	TEXT NOT NULL,
+                    "product_name"	TEXT NOT NULL UNIQUE,
                     "cost"	NUMERIC,
                     "price"	NUMERIC,
-                    "location"	INTEGER,
+                    "location"	TEXT,
                     "reorder_level"	INTEGER,
                     "stock"	INTEGER DEFAULT 0,
                     PRIMARY KEY("product_name")
