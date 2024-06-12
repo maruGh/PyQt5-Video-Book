@@ -30,7 +30,8 @@ class DatabaseConnect:
         self.connector()
         try:
             # Check if the table exists
-            sql = f"SELECT name FROM sqlite_master WHERE type='table' and name='{self.table_name}'"
+            sql = f"SELECT name FROM sqlite_master WHERE type='table' \
+                and name='{self.table_name}'"
             self.cursor.execute(sql)
             result = self.cursor.fetchone()
 
@@ -47,7 +48,7 @@ class DatabaseConnect:
                     "reorder_level"	INTEGER,
                     "stock"	INTEGER DEFAULT 0,
                     PRIMARY KEY("product_name")
-                    );                   
+                    );
                     """
                 self.cursor.execute(sql)
                 # Commit changes to the database
@@ -130,11 +131,11 @@ class DatabaseConnect:
         # Update product info in the table
         values = tuple(kwargs.values())
 
-        sql = f""" UPDATE {self.table_name} SET 
-                    cost={kwargs["cost"]}, 
-                    price={kwargs["price"]}, 
-                    location={kwargs["location"]}, 
-                    reorder_level={kwargs["reorder_level"]}, 
+        sql = f""" UPDATE {self.table_name} SET \
+                    cost={kwargs["cost"]},
+                    price={kwargs["price"]},
+                    location={kwargs["location"]},
+                    reorder_level={kwargs["reorder_level"]},
                     stock={kwargs["stock"]}
                    WHERE product_name='{values[0]}';
             """
@@ -147,18 +148,23 @@ class DatabaseConnect:
             search_flag: ALL, IN_STOCK, RE_ORDER, NO_STOCK
         """
         if search_flag == "ALL":
-            sql = f"SELECT product_name, cost, price, stock, location, reorder_level FROM {self.table_name}"
+            sql = f"SELECT product_name, cost, price, stock, location, \
+                reorder_level FROM {self.table_name}"
         elif search_flag == "IN_STOCK":
-            sql = (f"SELECT product_name, cost, price, stock, location, reorder_level FROM {self.table_name} "
+            sql = (f"SELECT product_name, cost, price, stock, location, \
+                reorder_level FROM {self.table_name} "
                    f"WHERE stock>0")
         elif search_flag == "NO_STOCK":
-            sql = (f"SELECT product_name, cost, price, stock, location, reorder_level FROM {self.table_name} "
+            sql = (f"SELECT product_name, cost, price, stock, location, \
+                reorder_level FROM {self.table_name} "
                    f"WHERE stock<=0")
         elif search_flag == "RE_ORDER":
-            sql = (f"SELECT product_name, cost, price, stock, location, reorder_level FROM {self.table_name} "
+            sql = (f"SELECT product_name, cost, price, stock, location, \
+                reorder_level FROM {self.table_name} "
                    f"WHERE stock<=reorder_level")
         else:
-            sql = (f"SELECT product_name, cost, price, stock, location, reorder_level FROM {self.table_name} "
+            sql = (f"SELECT product_name, cost, price, stock, location, \
+                reorder_level FROM {self.table_name} "
                    f"WHERE product_name='{product_name}'")
 
         # Execute the SQL statement
@@ -167,19 +173,22 @@ class DatabaseConnect:
 
     def delete_product(self, product_name):
         # Delete a product from the table
-        sql = f"DELETE from {self.table_name} WHERE product_name='{product_name}'"
+        sql = f"DELETE from {self.table_name} \
+            WHERE product_name='{product_name}'"
         result = self.common_update_execute(sql=sql)
         return result
 
     def get_product_names(self, product_name):
         # Retrieve product names based on a partial or complete name
-        sql = f"SELECT product_name FROM {self.table_name} WHERE product_name LIKE '%{product_name}%'"
+        sql = f"SELECT product_name FROM {self.table_name} \
+            WHERE product_name LIKE '%{product_name}%'"
         search_result = self.common_search_all_execute(sql=sql)
         return search_result
 
     def get_single_product_info(self, product_name):
         # Retrieve information about a single product
-        sql = f"SELECT stock, reorder_level, location FROM {self.table_name} WHERE product_name='{product_name}'"
+        sql = f"SELECT stock, reorder_level, location FROM {self.table_name} \
+            WHERE product_name='{product_name}'"
         search_result = self.common_search_one_execute(sql=sql)
         return search_result
 
@@ -203,7 +212,8 @@ class DatabaseConnect:
 
     def get_reorder_product(self):
         # Retrieve the count of products that need to be reordered
-        sql = f"SELECT count(*) FROM {self.table_name} WHERE reorder_level>=stock "
+        sql = f"SELECT count(*) FROM {self.table_name} \
+            WHERE reorder_level>=stock "
         search_result = self.common_search_one_execute(sql=sql)
         return search_result
 
@@ -215,7 +225,7 @@ class DatabaseConnect:
 
     def update_stock(self, **kwargs):
         # Update the stock of a product
-        sql = f""" UPDATE {self.table_name} SET 
+        sql = f""" UPDATE {self.table_name} SET \
                     stock={kwargs["stock"]}
                    WHERE product_name='{kwargs["product_name"]}';
                 """

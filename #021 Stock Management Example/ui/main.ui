@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1199</width>
-    <height>827</height>
+    <width>1132</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -88,7 +88,7 @@
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: #fff;
+	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -157,7 +157,7 @@ QLabel {
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: #fff;
+	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -226,7 +226,7 @@ QLabel {
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: #fff;
+	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -295,7 +295,7 @@ QLabel {
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: #fff;
+	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -364,7 +364,7 @@ QLabel {
          <property name="styleSheet">
           <string notr="true">QFrame {
 	border: 2px solid grey;
-	background-color: #fff;
+	background-color: rgb(10, 169, 255);
 	border-radius: 5px;
 }
 
@@ -543,8 +543,8 @@ QLabel {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1199</width>
-     <height>22</height>
+     <width>1132</width>
+     <height>23</height>
     </rect>
    </property>
   </widget>

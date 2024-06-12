@@ -193,7 +193,7 @@ class StockManagement(QtWidgets.QMainWindow):
 
             search_data = self.search_dialog.get_all_products()
             self.show_data(data=search_data,
-                           title="Stock Management Example >>> All products")
+                           title="All products")
 
     # Function for adding new product ////
     def new_product_save(self):
@@ -207,7 +207,7 @@ class StockManagement(QtWidgets.QMainWindow):
             # Show datas after add new product
             search_data = self.search_dialog.get_all_products()
             self.show_data(data=search_data,
-                           title="Stock Management Example >>> All Products")
+                           title="All Products")
         else:
             QtWidgets.QMessageBox.warning(
                 self, "Warning",
@@ -221,38 +221,38 @@ class StockManagement(QtWidgets.QMainWindow):
         self.new_product_dialog.close()
         search_data = self.search_dialog.get_all_products()
         self.show_data(data=search_data,
-                       title="Stock Management Example >>> All Products")
+                       title="All Products")
 
     # Functions for SEARCH dialog
     def search_more_detail(self):
         data = self.search_dialog.get_more_detail()
         self.show_data(
             data=data,
-            title="Stock Management Example >>> Single Product Information")
+            title="Single Product Information")
 
     def search_in_stock_product(self):
         data = self.search_dialog.get_in_stock_product()
         self.show_data(
             data=data,
-            title="Stock Management Example >>> All in Stock Products")
+            title="All in Stock Products")
 
     def search_reorder_product(self):
         data = self.search_dialog.get_reorder_product()
         self.show_data(
             data=data,
-            title="Stock Management Example >>> Reorder Required Products")
+            title="Reorder Required Products")
 
     def search_no_stock_product(self):
         data = self.search_dialog.get_no_stock_product()
         self.show_data(
             data=data,
-            title="Stock Management Example >>> All out of Stock Products")
+            title="All out of Stock Products")
 
     def search_all_product(self):
         data = self.search_dialog.get_all_products()
         self.show_data(
             data=data,
-            title="Stock Management Example >>> All Products")
+            title="All Products")
 
     # Function for updating the product
     def update_product_save(self):
@@ -264,7 +264,7 @@ class StockManagement(QtWidgets.QMainWindow):
             # Show data after update product
             search_data = self.search_dialog.get_all_products()
             self.show_data(data=search_data,
-                           title="Stock Management Example >>> All products")
+                           title="All products")
 
         else:
             QtWidgets.QMessageBox.warning(
@@ -287,7 +287,7 @@ class StockManagement(QtWidgets.QMainWindow):
             self.update_stock_dialog.close()
             search_data = self.search_dialog.get_all_products()
             self.show_data(data=search_data,
-                           title="Stock Management Example >>> All Products ")
+                           title="All Products ")
 
 
 if __name__ == '__main__':
