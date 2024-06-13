@@ -42,6 +42,11 @@
     </property>
     <item>
      <widget class="QFrame" name="frame">
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+	background-color: rgb(0, 0, 0);
+}</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -443,7 +448,7 @@ QLabel {
       </property>
       <property name="styleSheet">
        <string notr="true">QFrame {
-	background-color: #2f75b5;
+	background-color: rgb(0, 53, 77);
 }
 
 QLabel {
