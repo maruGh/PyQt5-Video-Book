@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>icon/joomla-64.ico</normaloff>icon/joomla-64.ico</iconset>
+    <normaloff>../../../../../../.designer/backup/icon/joomla-64.ico</normaloff>../../../../../../.designer/backup/icon/joomla-64.ico</iconset>
   </property>
   <property name="iconSize">
    <size>
@@ -131,6 +131,7 @@ QLabel {
              <string notr="true">QLabel {
 	font-size: 14px;
 	font-weight: bold;
+	color: rgb(255, 255, 255);
 }</string>
             </property>
             <property name="text">
@@ -571,7 +572,7 @@ QLabel {
   <action name="actionNew_Product">
    <property name="icon">
     <iconset>
-     <normaloff>../../../1 Calculator/logs/+.svg</normaloff>../../../1 Calculator/logs/+.svg</iconset>
+     <normaloff>../../../../../../../1 Calculator/logs/+.svg</normaloff>../../../../../../../1 Calculator/logs/+.svg</iconset>
    </property>
    <property name="text">
     <string>New Product</string>
@@ -580,7 +581,7 @@ QLabel {
   <action name="actionStock_Update">
    <property name="icon">
     <iconset>
-     <normaloff>../../../1 Calculator/logs/update.svg</normaloff>../../../1 Calculator/logs/update.svg</iconset>
+     <normaloff>../../../../../../../1 Calculator/logs/update.svg</normaloff>../../../../../../../1 Calculator/logs/update.svg</iconset>
    </property>
    <property name="text">
     <string>Stock Update</string>
@@ -589,7 +590,7 @@ QLabel {
   <action name="actionSearch">
    <property name="icon">
     <iconset>
-     <normaloff>../../../1 Calculator/logs/search.svg</normaloff>../../../1 Calculator/logs/search.svg</iconset>
+     <normaloff>../../../../../../../1 Calculator/logs/search.svg</normaloff>../../../../../../../1 Calculator/logs/search.svg</iconset>
    </property>
    <property name="text">
     <string>Search</string>
@@ -598,7 +599,7 @@ QLabel {
   <action name="actionExit">
    <property name="icon">
     <iconset>
-     <normaloff>../../../1 Calculator/logs/X.svg</normaloff>../../../1 Calculator/logs/X.svg</iconset>
+     <normaloff>../../../../../../../1 Calculator/logs/X.svg</normaloff>../../../../../../../1 Calculator/logs/X.svg</iconset>
    </property>
    <property name="text">
     <string>Exit</string>
