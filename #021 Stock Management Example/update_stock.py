@@ -1,5 +1,20 @@
-from PyQt6 import QtWidgets, QtCore, uic
+from PyQt6 import QtWidgets, uic
 from connect_db import DatabaseConnect
+import os
+import sys
+
+# Define the resource_path function
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 class UpdateStockWindow(QtWidgets.QDialog):
@@ -7,7 +22,7 @@ class UpdateStockWindow(QtWidgets.QDialog):
         super().__init__()
 
         # Load the inventory UI
-        self.ui = uic.loadUi('./ui/update_stock.ui', self)
+        self.ui = uic.loadUi(resource_path('ui/update_stock.ui'), self)
 
         # Initialize UI elements
         self.submit_btn = self.ui.pushButton_2
@@ -28,7 +43,8 @@ class UpdateStockWindow(QtWidgets.QDialog):
         self.init_search_dialog()
 
         # Connect signals to slots
-        self.input_product_name.textChanged.connect(self.update_product_name_list)
+        self.input_product_name.textChanged.connect(
+            self.update_product_name_list)
         self.select_btn.clicked.connect(self.select_product)
 
     def init_search_dialog(self):
@@ -68,7 +84,6 @@ class UpdateStockWindow(QtWidgets.QDialog):
         if select_obj:
             product_name = select_obj.text()
 
-
         # Set the selected product name in the input field
         self.show_product_name.setText(product_name)
 
@@ -80,7 +95,8 @@ class UpdateStockWindow(QtWidgets.QDialog):
         product_name = self.show_product_name.text()
         if product_name:
             # Retrieve original stock and update stock from the UI
-            original_stock = self.connect_db.get_single_product_info(product_name=product_name)[0]
+            original_stock = self.connect_db.get_single_product_info(
+                product_name=product_name)[0]
             update_stock = self.new_stock.value()
 
             # Update the stock based on the selected operation (add or subtract)
@@ -90,7 +106,8 @@ class UpdateStockWindow(QtWidgets.QDialog):
                 stock = original_stock - update_stock
 
             # Update the stock in the database
-            update_result = self.connect_db.update_stock(product_name=product_name, stock=stock)
+            update_result = self.connect_db.update_stock(
+                product_name=product_name, stock=stock)
 
             return update_result
 

@@ -1,5 +1,20 @@
 from PyQt6 import QtWidgets, uic
 from connect_db import DatabaseConnect
+import os
+import sys
+
+# Define the resource_path function
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 class UpdateProductWindow(QtWidgets.QDialog):
@@ -7,7 +22,7 @@ class UpdateProductWindow(QtWidgets.QDialog):
         super().__init__()
 
         # Load the update product UI
-        self.ui = uic.loadUi('./ui/update_product.ui', self)
+        self.ui = uic.loadUi(resource_path('ui/update_product.ui'), self)
 
         # Connect to the database
         self.connect_db = DatabaseConnect()
@@ -92,10 +107,14 @@ class UpdateProductWindow(QtWidgets.QDialog):
 
         if product_data:
             update_result = self.connect_db.update_product(product_name=product_data.get("product_name"),
-                                                           cost=product_data.get("cost"),
-                                                           price=product_data.get("price"),
-                                                           location=product_data.get("location"),
-                                                           reorder_level=product_data.get("reorder_level"),
+                                                           cost=product_data.get(
+                                                               "cost"),
+                                                           price=product_data.get(
+                                                               "price"),
+                                                           location=product_data.get(
+                                                               "location"),
+                                                           reorder_level=product_data.get(
+                                                               "reorder_level"),
                                                            stock=product_data.get("stock"))
 
             return update_result

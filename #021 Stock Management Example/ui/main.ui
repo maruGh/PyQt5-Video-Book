@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Stock Management Example</string>
+   <string>Let make life easier </string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../../../../../../../../.designer/backup/icon/joomla-64.ico</normaloff>../../../../../../../../../../.designer/backup/icon/joomla-64.ico</iconset>
+    <normaloff>../../../../../../.designer/backup/icon/joomla-64.ico</normaloff>../../../../../../.designer/backup/icon/joomla-64.ico</iconset>
   </property>
   <property name="iconSize">
    <size>
@@ -200,6 +200,7 @@ QLabel {
              <string notr="true">QLabel {
 	font-size: 14px;
 	font-weight: bold;
+	color:rgb(255, 255, 255)
 }</string>
             </property>
             <property name="text">
@@ -268,6 +269,7 @@ QLabel {
              <string notr="true">QLabel {
 	font-size: 14px;
 	font-weight: bold;
+	color: rgb(255, 255, 255);
 }</string>
             </property>
             <property name="text">
@@ -336,6 +338,7 @@ QLabel {
              <string notr="true">QLabel {
 	font-size: 14px;
 	font-weight: bold;
+color: rgb(255, 255, 255);
 }</string>
             </property>
             <property name="text">
@@ -403,7 +406,7 @@ QLabel {
             <property name="styleSheet">
              <string notr="true">QLabel {
 	font-size: 14px;
-	font-weight: bold;
+	font-weight: bold;color: rgb(255, 255, 255);
 }</string>
             </property>
             <property name="text">
@@ -545,7 +548,7 @@ QLabel {
      <x>0</x>
      <y>0</y>
      <width>1132</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -553,6 +556,11 @@ QLabel {
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
     <string>toolBar</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget:hover{
+color: rgb(85, 0, 0)
+}</string>
    </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextUnderIcon</enum>
@@ -572,7 +580,7 @@ QLabel {
   <action name="actionNew_Product">
    <property name="icon">
     <iconset>
-     <normaloff>icon/add.svg</normaloff>icon/add.svg</iconset>
+     <normaloff>icons/add.svg</normaloff>icons/add.svg</iconset>
    </property>
    <property name="text">
     <string>New Product</string>
@@ -581,7 +589,7 @@ QLabel {
   <action name="actionStock_Update">
    <property name="icon">
     <iconset>
-     <normaloff>icon/update.svg</normaloff>icon/update.svg</iconset>
+     <normaloff>icons/update.svg</normaloff>icons/update.svg</iconset>
    </property>
    <property name="text">
     <string>Stock Update</string>
@@ -590,7 +598,7 @@ QLabel {
   <action name="actionSearch">
    <property name="icon">
     <iconset>
-     <normaloff>icon/search.svg</normaloff>icon/search.svg</iconset>
+     <normaloff>icons/search.svg</normaloff>icons/search.svg</iconset>
    </property>
    <property name="text">
     <string>Search</string>
@@ -599,7 +607,7 @@ QLabel {
   <action name="actionExit">
    <property name="icon">
     <iconset>
-     <normaloff>icon/X.svg</normaloff>icon/X.svg</iconset>
+     <normaloff>icons/X.svg</normaloff>icons/X.svg</iconset>
    </property>
    <property name="text">
     <string>Exit</string>

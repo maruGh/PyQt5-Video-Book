@@ -1,4 +1,6 @@
 import sys
+import uuid
+import os
 from PyQt6 import QtWidgets, uic, QtGui
 
 from connect_db import DatabaseConnect
@@ -8,12 +10,39 @@ from update_stock import UpdateStockWindow
 from search import SearchWindow
 
 
+def get_machine_id():
+    """
+    Generate a unique machine ID.
+    """
+    return hex(uuid.getnode())
+
+
+# ALLOWED_MACHINE_ID = '0xd8126513af31'
+ALLOWED_MACHINE_ID = '0xdc4a3ee49abb'
+
+if get_machine_id() != ALLOWED_MACHINE_ID:
+    print("Machine ID is not allowed.")
+    sys.exit()
+
+
+# Define the resource_path function
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+
 class StockManagement(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
 
         # Load the main ui file
-        self.ui = uic.loadUi("./ui/main.ui", self)
+        self.ui = uic.loadUi(resource_path("ui/main.ui"), self)
 
         # Initialize dialog windows and database connection
         self.new_product_dialog = NewProductWindow()

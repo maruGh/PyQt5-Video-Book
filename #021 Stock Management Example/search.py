@@ -1,5 +1,20 @@
 from PyQt6 import QtWidgets, uic
 from connect_db import DatabaseConnect
+import os
+import sys
+
+# Define the resource_path function
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 class SearchWindow(QtWidgets.QWidget):
@@ -7,7 +22,7 @@ class SearchWindow(QtWidgets.QWidget):
         super().__init__()
 
         # Load the search UI file
-        self.ui = uic.loadUi("./ui/search.ui", self)
+        self.ui = uic.loadUi(resource_path("ui/search.ui"), self)
 
         self.connect_db = DatabaseConnect()
 
@@ -29,8 +44,10 @@ class SearchWindow(QtWidgets.QWidget):
         self.init_search_dialog()
 
         # Connect signals to slots
-        self.input_product_name_LE.textChanged.connect(self.update_product_name_list)
-        self.product_name_LW.currentTextChanged.connect(self.search_product_info)
+        self.input_product_name_LE.textChanged.connect(
+            self.update_product_name_list)
+        self.product_name_LW.currentTextChanged.connect(
+            self.search_product_info)
 
     def init_search_dialog(self):
         """
@@ -57,7 +74,8 @@ class SearchWindow(QtWidgets.QWidget):
             return data
 
         else:
-            QtWidgets.QMessageBox.warning(self, "Warning", "Please select a product.")
+            QtWidgets.QMessageBox.warning(
+                self, "Warning", "Please select a product.")
             return
 
     def get_in_stock_product(self):
@@ -92,7 +110,8 @@ class SearchWindow(QtWidgets.QWidget):
 
         if product_name:
             # Retrieve product information from the database
-            search_result = self.connect_db.get_single_product_info(product_name=product_name)
+            search_result = self.connect_db.get_single_product_info(
+                product_name=product_name)
             print(search_result)
 
             # Update UI labels with the retrieved information

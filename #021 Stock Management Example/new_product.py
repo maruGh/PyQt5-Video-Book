@@ -1,5 +1,20 @@
+import os
+import sys
 from PyQt6 import QtWidgets, uic
 from connect_db import DatabaseConnect
+
+# Define the resource_path function
+
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 class NewProductWindow(QtWidgets.QWidget):
@@ -7,7 +22,7 @@ class NewProductWindow(QtWidgets.QWidget):
         super().__init__()
 
         # Load the UI file
-        self.ui = uic.loadUi("./ui/new_product.ui", self)
+        self.ui = uic.loadUi(resource_path("ui/new_product.ui"), self)
 
         # Get references to the new product dialog
         self.new_product_save_btn = self.ui.pushButton
